@@ -891,7 +891,7 @@
                 resultBadge.textContent = prediction.class.toUpperCase();
                 resultBadge.className = `result-badge ${prediction.class}`;
                 
-                const emoji = prediction.class === 'human' ? '👤' : '🤖';
+                const emoji = prediction.class === 'human' ? '' : '';
                 confidence.innerHTML = `${emoji} Confidence: ${prediction.confidence.toFixed(1)}%`;
                 
                 progressFill.style.width = `${Math.min(prediction.confidence, 100)}%`;
@@ -930,4 +930,5 @@
     </script>
 </body>
 </html>
+
 
