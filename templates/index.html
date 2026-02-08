@@ -680,7 +680,7 @@
             if (!file) return;
             
             resetResult(); 
-            status.innerHTML = '📂 Loading audio file...'; 
+            status.innerHTML = 'Loading audio file...'; 
             loader.classList.add('active');
             analyzeBtn.disabled = true;
             
@@ -701,9 +701,9 @@
                 drawWaveform(currentAudioBuffer);
                 loadAudioForPlayback(currentAudioBuffer);
                 analyzeBtn.disabled = false;
-                status.innerHTML = '✅ Audio loaded! Click "Analyze Now"';
+                status.innerHTML = 'Audio loaded! Click "Analyze Now"';
             } catch (err) { 
-                status.innerHTML = '❌ Error: ' + err.message; 
+                status.innerHTML = 'Error: ' + err.message; 
                 console.error(err); 
             } finally { 
                 loader.classList.remove('active'); 
@@ -741,9 +741,9 @@
                         drawWaveform(currentAudioBuffer);
                         loadAudioForPlayback(currentAudioBuffer);
                         analyzeBtn.disabled = false;
-                        status.innerHTML = '✅ Recording complete! Click "Analyze Now".';
+                        status.innerHTML = 'Recording complete! Click "Analyze Now".';
                     } catch (error) {
-                        status.innerHTML = '❌ Error processing recording';
+                        status.innerHTML = 'Error processing recording';
                         console.error(error);
                     }
                 };
@@ -753,10 +753,10 @@
                 recordBtn.disabled = true; 
                 stopBtn.disabled = false; 
                 recordBtn.classList.add('recording');
-                status.innerHTML = '🎤 Recording... Speak now!';
+                status.innerHTML = 'Recording... Speak now!';
                 
             } catch (err) { 
-                status.innerHTML = '❌ Error accessing microphone: ' + err.message; 
+                status.innerHTML = 'Error accessing microphone: ' + err.message; 
                 console.error(err); 
             }
         }
@@ -820,7 +820,7 @@
         analyzeBtn.addEventListener('click', async () => {
             if (!currentAudioBuffer) return;
 
-            status.innerHTML = '🔍 Analyzing audio...';
+            status.innerHTML = 'Analyzing audio...';
             loader.classList.add('active');
             analyzeBtn.disabled = true;
             result.classList.remove('active');
@@ -862,9 +862,9 @@
                     
                     // Show probabilities if available
                     if (data.probabilities) {
-                        status.innerHTML = `✅ Analysis complete! Human: ${data.probabilities.human}%, AI: ${data.probabilities.ai}%`;
+                        status.innerHTML = `Analysis complete! Human: ${data.probabilities.human}%, AI: ${data.probabilities.ai}%`;
                     } else {
-                        status.innerHTML = '✅ Analysis complete!';
+                        status.innerHTML = 'Analysis complete!';
                     }
                     
                 } else if (data.error) {
@@ -877,7 +877,7 @@
 
             } catch (err) {
                 console.error('Analysis error:', err);
-                status.innerHTML = `❌ Error: ${err.message}`;
+                status.innerHTML = `Error: ${err.message}`;
                 alert(`Analysis failed: ${err.message}`);
             } finally {
                 loader.classList.remove('active');
@@ -916,13 +916,13 @@
             
             // Check if browser supports required features
             if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-                status.innerHTML = '❌ This browser does not support audio recording';
+                status.innerHTML = 'This browser does not support audio recording';
                 recordBtn.disabled = true;
                 recordBtn.innerHTML = 'Recording Not Supported';
             }
             
             if (!window.AudioContext && !window.webkitAudioContext) {
-                status.innerHTML = '❌ This browser does not support Web Audio API';
+                status.innerHTML = 'This browser does not support Web Audio API';
                 recordBtn.disabled = true;
                 analyzeBtn.disabled = true;
             }
@@ -930,3 +930,4 @@
     </script>
 </body>
 </html>
+
